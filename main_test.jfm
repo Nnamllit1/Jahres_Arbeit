@@ -1,6 +1,6 @@
 object main_test: TFGUIForm
-  Left = 1068
-  Top = 345
+  Left = 1156
+  Top = 141
   BorderIcons = [biSystemMenu]
   Caption = 'main_test_Frame'
   ClientHeight = 461
@@ -24,8 +24,8 @@ object main_test: TFGUIForm
     Tag = 19
     Left = 0
     Top = 0
-    Width = 300
-    Height = 150
+    Width = 0
+    Height = 0
     Hint = 'jTable1'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -34,7 +34,8 @@ object main_test: TFGUIForm
     Font.Style = []
     Foreground = 3355443
     Background = clWhite
-    RowHeight = 16
+    Enabled = False
+    RowHeight = 10
     ShowHorizontalLines = True
     ShowVerticalLines = True
     ShowGrid = True
@@ -44,15 +45,15 @@ object main_test: TFGUIForm
       'Title 3'
       'Title 4'
       'Title 5')
-    ColCount = 5
-    RowCount = 5
+    ColCount = 10
+    RowCount = 10
     FillsViewportHeight = False
     AutoCreateRowSorter = False
-    RowSelectionAllowed = True
+    RowSelectionAllowed = False
     ColumnSelectionAllowed = False
     CellSelectionEnabled = False
     DragEnabled = False
-    HorizontalScrollBarPolicy = AS_NEEDED
-    VerticalScrollBarPolicy = AS_NEEDED
+    HorizontalScrollBarPolicy = NEVER
+    VerticalScrollBarPolicy = NEVER
   end
 end
