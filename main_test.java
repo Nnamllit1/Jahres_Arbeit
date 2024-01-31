@@ -27,7 +27,7 @@ public class main_test extends JFrame {
     int y = (d.height - getSize().height) / 2;
     setLocation(x, y);
     setTitle("main_test_Frame");
-    setResizable(false);
+    setResizable(true);
     Container cp = getContentPane();
     cp.setLayout(null);
     // Anfang Komponenten

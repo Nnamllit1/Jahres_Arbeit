@@ -15,7 +15,7 @@ object main_test: TFGUIForm
   OnCloseQuery = FormCloseQuery
   OnResize = FormResize
   FrameType = 5
-  Resizable = False
+  Resizable = True
   Undecorated = False
   Background = clBtnFace
   PixelsPerInch = 96

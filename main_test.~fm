@@ -1,8 +1,8 @@
 object main_test: TFGUIForm
-  Left = 52
-  Top = 52
+  Left = 1068
+  Top = 345
   BorderIcons = [biSystemMenu]
-  Caption = 'main_test'
+  Caption = 'main_test_Frame'
   ClientHeight = 261
   ClientWidth = 284
   Color = clBtnFace
