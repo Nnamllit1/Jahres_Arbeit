@@ -19,9 +19,9 @@ public class main extends JFrame {
   static int max_y = 10;
   static int [] [] game_field = new int [max_x] [max_y];
   
-  private JTable jTable1 = new JTable(1, 1);
-    private DefaultTableModel jTable1Model = (DefaultTableModel) jTable1.getModel();
-    private JScrollPane jTable1ScrollPane = new JScrollPane(jTable1);
+  public JTable jTable1 = new JTable(1, 1);
+    public DefaultTableModel jTable1Model = (DefaultTableModel) jTable1.getModel();
+    public JScrollPane jTable1ScrollPane = new JScrollPane(jTable1);
   // Ende Attribute
   
   public main() { 
@@ -53,6 +53,10 @@ public class main extends JFrame {
   } // end of public main
   
   // Anfang Methoden
+  
+  public void game_fielt_abgleichen() {
+    
+  }
   
   public static void main(String[] args) {
     new main();
