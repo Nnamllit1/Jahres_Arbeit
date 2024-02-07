@@ -20,7 +20,7 @@ object main: TFGUIForm
   Background = clBtnFace
   PixelsPerInch = 96
   TextHeight = 13
-  object jTable1: TJTable
+  object jTable_gamefielt: TJTable
     Tag = 19
     Left = 0
     Top = 0
@@ -44,7 +44,7 @@ object main: TFGUIForm
     ColCount = 1
     RowCount = 1
     FillsViewportHeight = False
-    AutoCreateRowSorter = False
+    AutoCreateRowSorter = True
     RowSelectionAllowed = False
     ColumnSelectionAllowed = False
     CellSelectionEnabled = False

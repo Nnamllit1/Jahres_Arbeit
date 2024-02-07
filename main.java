@@ -19,9 +19,9 @@ public class main extends JFrame {
   static int max_y = 10;
   static int [] [] game_field = new int [max_x] [max_y];
   
-  public JTable jTable1 = new JTable(1, 1);
-    public DefaultTableModel jTable1Model = (DefaultTableModel) jTable1.getModel();
-    public JScrollPane jTable1ScrollPane = new JScrollPane(jTable1);
+  public JTable jTable_gamefielt = new JTable(1, 1);
+    public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
+    public JScrollPane jTable_gamefieltScrollPane = new JScrollPane(jTable_gamefielt);
   // Ende Attribute
   
   public main() { 
@@ -41,15 +41,17 @@ public class main extends JFrame {
     cp.setLayout(null);
     // Anfang Komponenten
     
-    jTable1ScrollPane.setBounds(0, 0, 500, 500);
-    jTable1.setRowSelectionAllowed(false);
-    jTable1.setEnabled(false);
-    jTable1.setFillsViewportHeight(false);
-    jTable1.getColumnModel().getColumn(0).setHeaderValue("");
-    cp.add(jTable1ScrollPane);
+    jTable_gamefieltScrollPane.setBounds(0, 0, 500, 500);
+    jTable_gamefielt.setRowSelectionAllowed(false);
+    jTable_gamefielt.setEnabled(false);
+    jTable_gamefielt.setFillsViewportHeight(false);
+    jTable_gamefielt.getColumnModel().getColumn(0).setHeaderValue("");
+    jTable_gamefielt.setAutoCreateRowSorter(true);
+    cp.add(jTable_gamefieltScrollPane);
     // Ende Komponenten
     
     setVisible(true);
+    game_fielt_abgleichen();
   } // end of public main
   
   // Anfang Methoden
