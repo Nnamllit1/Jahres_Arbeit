@@ -15,13 +15,15 @@ import javax.swing.table.*;
 public class main extends JFrame {
   // Anfang Attribute
   static int max_uboot = 10;
-  static int max_x = 20;
-  static int max_y = 20;
+  static int max_x = 10;
+  static int max_y = 10;
   static int [] [] game_field = new int [max_x] [max_y];
   
   public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
     public JScrollPane jTable_gamefieltScrollPane = new JScrollPane(jTable_gamefielt);
+  private JTextArea jTextArea_gamelog = new JTextArea("");
+    private JScrollPane jTextArea_gamelogScrollPane = new JScrollPane(jTextArea_gamelog);
   // Ende Attribute
   
   public main() { 
@@ -48,11 +50,20 @@ public class main extends JFrame {
     jTable_gamefielt.setAutoCreateRowSorter(false);
     jTable_gamefielt.getColumnModel().getColumn(0).setHeaderValue("");
     cp.add(jTable_gamefieltScrollPane);
+    jTextArea_gamelogScrollPane.setBounds(500, 350, 300, 150);
+    jTextArea_gamelog.setEditable(false);
+    jTextArea_gamelog.setText("GAME LOG!!!");
+    jTextArea_gamelog.setToolTipText("This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    cp.add(jTextArea_gamelogScrollPane);
     // Ende Komponenten
     
     setVisible(true);
+    
+    
     game_field_fill();
+    random_uboot_gen();
     game_fielt_abgleichen();
+    
   } // end of public main
   
   // Anfang Methoden
@@ -76,6 +87,19 @@ public class main extends JFrame {
         game_field [x] [y] = 0;
       }
     }
+  }
+  
+  public void random_uboot_gen() {
+    int anzahl = 0;
+    do {
+      int zu1 = (int) (Math.random() *10);
+      int zu2 = (int) (Math.random() *10);
+    
+      if (game_field [zu1] [zu2] == 0) {
+        game_field [zu1] [zu2] = 1;
+        anzahl = anzahl + 1;
+      } // end of if
+    } while (anzahl < max_uboot); // end of do-while
   }
   
   public static void main(String[] args) {

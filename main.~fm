@@ -1,6 +1,6 @@
 object main: TFGUIForm
-  Left = 1064
-  Top = 210
+  Left = 1033
+  Top = 490
   BorderIcons = [biSystemMenu]
   Caption = 'main'
   ClientHeight = 500
@@ -51,5 +51,30 @@ object main: TFGUIForm
     DragEnabled = False
     HorizontalScrollBarPolicy = AS_NEEDED
     VerticalScrollBarPolicy = AS_NEEDED
+  end
+  object jTextArea_gamelog: TJTextArea
+    Tag = 3
+    Left = 500
+    Top = 350
+    Width = 300
+    Height = 150
+    Cursor = crIBeam
+    Hint = 'jTextArea1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = clWhite
+    ToolTipText = 'This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    LineWrap = False
+    HorizontalScrollBarPolicy = AS_NEEDED
+    VerticalScrollBarPolicy = AS_NEEDED
+    WrapStyleWord = False
+    TabSize = 8
+    Text.Strings = (
+      'GAME LOG!!!')
+    Editable = False
   end
 end
