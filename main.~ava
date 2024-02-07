@@ -19,7 +19,7 @@ public class main extends JFrame {
   static int max_y = 10;
   static int [] [] game_field = new int [max_x] [max_y];
   
-  public JTable jTable_gamefielt = new JTable(1, 0);
+  public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
     public JScrollPane jTable_gamefieltScrollPane = new JScrollPane(jTable_gamefielt);
   // Ende Attribute
@@ -59,6 +59,10 @@ public class main extends JFrame {
   public void game_fielt_abgleichen() {
     for (int x = 0; x < max_x; x++) {
       jTable_gamefieltModel.addColumn(String.valueOf(x));
+    }
+    jTable_gamefieltModel.setRowCount(max_y);
+    for (int y = 0; y < max_y; y++) {
+      jTable_gamefieltModel.setValueAt(String.valueOf(y), y, 0);
     }  
   }
   
