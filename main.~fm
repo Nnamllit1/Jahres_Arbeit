@@ -77,10 +77,10 @@ object main: TFGUIForm
       'GAME LOG!!!')
     Editable = False
   end
-  object jNumberField1: TJNumberField
+  object jNumberField_inputx: TJNumberField
     Tag = 21
     Left = 500
-    Top = 330
+    Top = 306
     Width = 75
     Height = 20
     Cursor = crIBeam
@@ -97,10 +97,10 @@ object main: TFGUIForm
     Text = ''
     Editable = True
   end
-  object jNumberField2: TJNumberField
+  object jNumberField_inputy: TJNumberField
     Tag = 21
     Left = 575
-    Top = 330
+    Top = 306
     Width = 75
     Height = 20
     Cursor = crIBeam
@@ -116,5 +116,50 @@ object main: TFGUIForm
     HorizontalAlignment = LEFT
     Text = ''
     Editable = True
+  end
+  object b_eingabe: TJButton
+    Tag = 4
+    Left = 537
+    Top = 326
+    Width = 75
+    Height = 25
+    Hint = 'jButton1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = 15658734
+    actionPerformed = 'b_eingabe_ActionPerformed'
+    ToolTipText = 'TODO'
+    Text = 'Eingabe'
+    Mnemonic = 0
+    DisplayedMnemonicIndex = 0
+    Selected = False
+    BorderPainted = True
+    FocusPainted = False
+    ContentAreaFilled = True
+    HorizontalAlignment = CENTER
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = RIGHT
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    RolloverEnabled = False
+    Border.BorderType = NoBorder
+    Border.LineColor = clBlack
+    Border.LineThickness = 0
+    Border.LineRounded = False
+    Border.EtchHighlightColor = clBlack
+    Border.EtchShadowColor = clBlack
+    Border.Etchtype = 0
+    Border.BevelHighlightColor = clBlack
+    Border.BevelShadowColor = clBlack
+    Border.Beveltype = 0
+    Border.MatteColor = clBlack
+    Border.MatteTop = 0
+    Border.MatteLeft = 0
+    Border.MatteBottom = 0
+    Border.MatteRight = 0
   end
 end

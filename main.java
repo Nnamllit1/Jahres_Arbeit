@@ -18,14 +18,17 @@ public class main extends JFrame {
   static int max_x = 25;
   static int max_y = 25;
   static int [] [] game_field = new int [max_x] [max_y];
+  public int x;
+  public int y;
   
   public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
     public JScrollPane jTable_gamefieltScrollPane = new JScrollPane(jTable_gamefielt);
   public JTextArea jTextArea_gamelog = new JTextArea("");
     public JScrollPane jTextArea_gamelogScrollPane = new JScrollPane(jTextArea_gamelog);
-  public JNumberField jNumberField1 = new JNumberField();
-  public JNumberField jNumberField2 = new JNumberField();
+  public JNumberField jNumberField_inputx = new JNumberField();
+  public JNumberField jNumberField_inputy = new JNumberField();
+  private JButton b_eingabe = new JButton();
   // Ende Attribute
   
   public main() { 
@@ -57,26 +60,40 @@ public class main extends JFrame {
     jTextArea_gamelog.setText("GAME LOG!!!");
     jTextArea_gamelog.setToolTipText("This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     cp.add(jTextArea_gamelogScrollPane);
-    jNumberField1.setBounds(500, 330, 75, 20);
-    jNumberField1.setText("");
-    jNumberField1.setToolTipText("Input for X");
-    cp.add(jNumberField1);
-    jNumberField2.setBounds(575, 330, 75, 20);
-    jNumberField2.setText("");
-    jNumberField2.setToolTipText("Input for Y");
-    cp.add(jNumberField2);
+    jNumberField_inputx.setBounds(500, 306, 75, 20);
+    jNumberField_inputx.setText("");
+    jNumberField_inputx.setToolTipText("Input for X");
+    cp.add(jNumberField_inputx);
+    jNumberField_inputy.setBounds(575, 306, 75, 20);
+    jNumberField_inputy.setText("");
+    jNumberField_inputy.setToolTipText("Input for Y");
+    cp.add(jNumberField_inputy);
+    b_eingabe.setBounds(537, 326, 75, 25);
+    b_eingabe.setText("Eingabe");
+    b_eingabe.setMargin(new Insets(2, 2, 2, 2));
+    b_eingabe.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        b_eingabe_ActionPerformed(evt);
+      }
+    });
+    b_eingabe.setToolTipText("TODO");
+    cp.add(b_eingabe);
     // Ende Komponenten
     
     setVisible(true);
     
-    
-    game_field_fill();
-    random_uboot_gen();
-    game_fielt_abgleichen();
-    
+  
+    game_start();
+  
   } // end of public main
   
   // Anfang Methoden
+  
+  public void game_start() {
+    game_field_fill();
+    random_uboot_gen();
+    game_fielt_abgleichen();
+  }
   
   public void game_fielt_abgleichen() {
     for (int y = 0; y < max_y; y++) {
@@ -102,8 +119,8 @@ public class main extends JFrame {
   public void random_uboot_gen() {
     int anzahl = 0;
     do {
-      int zu1 = (int) (Math.random() *10);
-      int zu2 = (int) (Math.random() *10);
+      int zu1 = (int) (Math.random() *max_x);
+      int zu2 = (int) (Math.random() *max_y);
     
       if (game_field [zu1] [zu2] == 0) {
         game_field [zu1] [zu2] = 1;
@@ -112,10 +129,39 @@ public class main extends JFrame {
     } while (anzahl < max_uboot); // end of do-while
   }
   
+  public void user_input() {
+    int treffer = 0;
+    do {
+      game_fielt_abgleichen();
+      
+      if (game_field [x] [y] == 1) {
+        log_println("Treffer versengt");
+        game_field [x] [y] = 3;
+        treffer++;
+      } else {
+        log_println("Verfehlt");
+        game_field [x] [y] = 2;
+      } // end of if-else
+    } while (treffer < max_uboot); // end of do-while
+  }
+  
+  public void log_println(String input) {
+    jTextArea_gamelog.append(input + "\n");
+  }
+  
   public static void main(String[] args) {
     new main();
   } // end of main
   
+  public void b_eingabe_ActionPerformed(ActionEvent evt) {
+    // TODO hier Quelltext einfügen
+    x = jNumberField_inputx.getInt();
+    y = jNumberField_inputy.getInt();
+    jNumberField_inputx.clear();
+    jNumberField_inputy.clear();
+    user_input();
+  } // end of b_eingabe_ActionPerformed
+
   // Ende Methoden
 } // end of class main
 

@@ -141,7 +141,7 @@ public class main {
     random_uboot_gen();
     user_input();
   }
-    
+ 
   public static void main(String[] args) {
     game_logik();
   } // end of main
