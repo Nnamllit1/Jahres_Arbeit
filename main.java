@@ -51,22 +51,31 @@ public class main extends JFrame {
     // Ende Komponenten
     
     setVisible(true);
+    game_field_fill();
     game_fielt_abgleichen();
   } // end of public main
   
   // Anfang Methoden
   
   public void game_fielt_abgleichen() {
-    for (int x = 0; x < max_x; x++) {
-      jTable_gamefieltModel.addColumn(String.valueOf(x));
-    }
-    jTable_gamefieltModel.setRowCount(max_y);
     for (int y = 0; y < max_y; y++) {
-      jTable_gamefieltModel.setValueAt(String.valueOf(y), y, 0);
-      for (int x = 0; x < max_x; x++) {
-        
+      jTable_gamefieltModel.addColumn(String.valueOf(y));
+    }
+    jTable_gamefieltModel.setRowCount(max_x);
+    for (int x = 0; x < max_x; x++) {
+      jTable_gamefieltModel.setValueAt(String.valueOf(x), x, 0);
+      for (int y = 0; y < max_y; y++) {
+        jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
       }
     }  
+  }
+  
+  public void game_field_fill() {
+    for (int x = 0; x < max_x; x++) {
+      for (int y = 0; y < max_y; y++) {
+        game_field [x] [y] = 0;
+      }
+    }
   }
   
   public static void main(String[] args) {
