@@ -15,8 +15,8 @@ import javax.swing.table.*;
 public class main extends JFrame {
   // Anfang Attribute
   static int max_uboot = 10;
-  static int max_x = 10;
-  static int max_y = 10;
+  static int max_x = 20;
+  static int max_y = 20;
   static int [] [] game_field = new int [max_x] [max_y];
   
   public JTable jTable_gamefielt = new JTable(0, 1);
@@ -45,7 +45,7 @@ public class main extends JFrame {
     jTable_gamefielt.setRowSelectionAllowed(false);
     jTable_gamefielt.setEnabled(false);
     jTable_gamefielt.setFillsViewportHeight(false);
-    jTable_gamefielt.setAutoCreateRowSorter(true);
+    jTable_gamefielt.setAutoCreateRowSorter(false);
     jTable_gamefielt.getColumnModel().getColumn(0).setHeaderValue("");
     cp.add(jTable_gamefieltScrollPane);
     // Ende Komponenten
@@ -63,6 +63,9 @@ public class main extends JFrame {
     jTable_gamefieltModel.setRowCount(max_y);
     for (int y = 0; y < max_y; y++) {
       jTable_gamefieltModel.setValueAt(String.valueOf(y), y, 0);
+      for (int x = 0; x < max_x; x++) {
+        
+      }
     }  
   }
   

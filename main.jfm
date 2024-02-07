@@ -44,7 +44,7 @@ object main: TFGUIForm
     ColCount = 1
     RowCount = 0
     FillsViewportHeight = False
-    AutoCreateRowSorter = True
+    AutoCreateRowSorter = False
     RowSelectionAllowed = False
     ColumnSelectionAllowed = False
     CellSelectionEnabled = False
