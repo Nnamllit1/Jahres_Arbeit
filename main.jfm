@@ -77,4 +77,44 @@ object main: TFGUIForm
       'GAME LOG!!!')
     Editable = False
   end
+  object jNumberField1: TJNumberField
+    Tag = 21
+    Left = 500
+    Top = 330
+    Width = 75
+    Height = 20
+    Cursor = crIBeam
+    Hint = 'jNumberField1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = 3355443
+    Background = clWhite
+    ToolTipText = 'Input for X'
+    HorizontalAlignment = LEFT
+    Text = ''
+    Editable = True
+  end
+  object jNumberField2: TJNumberField
+    Tag = 21
+    Left = 575
+    Top = 330
+    Width = 75
+    Height = 20
+    Cursor = crIBeam
+    Hint = 'jNumberField2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = 3355443
+    Background = clWhite
+    ToolTipText = 'Input for Y'
+    HorizontalAlignment = LEFT
+    Text = ''
+    Editable = True
+  end
 end

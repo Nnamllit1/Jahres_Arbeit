@@ -1,0 +1,2 @@
+hinweis für spiel feld:
+1. spiel feld sollte nicht größer als 25 sein

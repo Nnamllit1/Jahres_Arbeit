@@ -15,15 +15,17 @@ import javax.swing.table.*;
 public class main extends JFrame {
   // Anfang Attribute
   static int max_uboot = 10;
-  static int max_x = 10;
-  static int max_y = 10;
+  static int max_x = 25;
+  static int max_y = 25;
   static int [] [] game_field = new int [max_x] [max_y];
   
   public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
     public JScrollPane jTable_gamefieltScrollPane = new JScrollPane(jTable_gamefielt);
-  private JTextArea jTextArea_gamelog = new JTextArea("");
-    private JScrollPane jTextArea_gamelogScrollPane = new JScrollPane(jTextArea_gamelog);
+  public JTextArea jTextArea_gamelog = new JTextArea("");
+    public JScrollPane jTextArea_gamelogScrollPane = new JScrollPane(jTextArea_gamelog);
+  public JNumberField jNumberField1 = new JNumberField();
+  public JNumberField jNumberField2 = new JNumberField();
   // Ende Attribute
   
   public main() { 
@@ -55,6 +57,14 @@ public class main extends JFrame {
     jTextArea_gamelog.setText("GAME LOG!!!");
     jTextArea_gamelog.setToolTipText("This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     cp.add(jTextArea_gamelogScrollPane);
+    jNumberField1.setBounds(500, 330, 75, 20);
+    jNumberField1.setText("");
+    jNumberField1.setToolTipText("Input for X");
+    cp.add(jNumberField1);
+    jNumberField2.setBounds(575, 330, 75, 20);
+    jNumberField2.setText("");
+    jNumberField2.setToolTipText("Input for Y");
+    cp.add(jNumberField2);
     // Ende Komponenten
     
     setVisible(true);
