@@ -15,9 +15,9 @@ import javax.swing.table.*;
 public class main extends JFrame {
   // Anfang Attribute
   // start attributes
-  static int max_uboot = 10;
-  static int max_x = 25;
-  static int max_y = 25;
+  static int max_uboot = 1;
+  static int max_x = 1;
+  static int max_y = 1;
   static int [] [] game_field = new int [max_x] [max_y];
   //public int x;
   //public int y;
@@ -144,6 +144,11 @@ public class main extends JFrame {
       log_println("Verfehlt");
       game_field [x] [y] = 2;
     } // end of if-else
+    
+    if (treffer >= max_uboot) {
+      log_println("Gewonnen!!!");
+    } // end of if
+    
   }
   
   public void log_println(String input) {
@@ -170,8 +175,6 @@ public class main extends JFrame {
         jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
       }
     }
-     
-  
   }
 
   // Ende Methoden

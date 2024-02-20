@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 979
-  Top = 400
+  Left = 931
+  Top = 550
   BorderIcons = [biSystemMenu]
   Caption = 'main'
   ClientHeight = 461
@@ -83,7 +83,7 @@ object FGUIForm: TFGUIForm
     WrapStyleWord = False
     TabSize = 8
     Text.Strings = (
-      'GAME LOG!!! \n')
+      'GAME LOG!!!')
     Editable = False
   end
   object jNumberField_inputx: TJNumberField
