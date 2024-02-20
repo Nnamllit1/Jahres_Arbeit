@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,10 +16,14 @@ import javax.swing.table.*;
 public class main extends JFrame {
   // Anfang Attribute
   // start attributes
-  static int max_uboot = 1;
-  static int max_x = 1;
-  static int max_y = 1;
-  static int [] [] game_field = new int [max_x] [max_y];
+  int max_uboot = 1;
+  int max_x = 10;
+  int max_y = 10;
+  
+  int [] [] game_field;
+  
+  //int [] [] game_field = new int [max_x] [max_y];
+  
   //public int x;
   //public int y;
   public int treffer;
@@ -31,6 +36,19 @@ public class main extends JFrame {
   public JNumberField jNumberField_inputx = new JNumberField();
   public JNumberField jNumberField_inputy = new JNumberField();
   private JButton b_eingabe = new JButton();
+  private JButton bStartNewGame1 = new JButton();
+  private JPanel jPanel1 = new JPanel(null, true);
+    private JLabel lNewGameSettings1 = new JLabel();
+    private JLabel lUboote1 = new JLabel();
+    private JTextArea jTextArea_logofshame = new JTextArea();
+      private JScrollPane jTextArea_logofshameScrollPane = new JScrollPane(jTextArea_logofshame);
+    private JLabel lPlayingfieldsizeX2 = new JLabel();
+    private JLabel lPlayingfieldsizeY1 = new JLabel();
+    private JLabel lanysizeover25isntrecommended1 = new JLabel();
+    private JButton bStart1 = new JButton();
+    private JNumberField jNumberField_uboote = new JNumberField();
+    private JNumberField jNumberField_x = new JNumberField();
+    private JNumberField jNumberField_y = new JNumberField();
   // end attributes
   // Ende Attribute
   
@@ -39,7 +57,7 @@ public class main extends JFrame {
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 1000; 
-    int frameHeight = 500;
+    int frameHeight = 499;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -84,24 +102,80 @@ public class main extends JFrame {
     cp.add(b_eingabe);
     // Ende Komponenten
     
+    bStartNewGame1.setBounds(500, 0, 115, 24);
+    bStartNewGame1.setText("Start New Game");
+    bStartNewGame1.setMargin(new Insets(2, 2, 2, 2));
+    bStartNewGame1.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bStartNewGame1_ActionPerformed(evt);
+      }
+    });
+    cp.add(bStartNewGame1);
+    jPanel1.setBounds(504, 24, 500, 280);
+    jPanel1.setOpaque(false);
+    jPanel1.setVisible(false);
+    cp.add(jPanel1);
+    lNewGameSettings1.setBounds(0, 0, 115, 24);
+    lNewGameSettings1.setText("New Game Settings");
+    jPanel1.add(lNewGameSettings1);
+    lUboote1.setBounds(0, 24, 112, 24);
+    lUboote1.setText("Uboote");
+    jPanel1.add(lUboote1);
+    jTextArea_logofshameScrollPane.setBounds(0, 160, 500, 80);
+    jTextArea_logofshame.setToolTipText("The log of shame");
+    jPanel1.add(jTextArea_logofshameScrollPane);
+    lPlayingfieldsizeX2.setBounds(0, 48, 112, 24);
+    lPlayingfieldsizeX2.setText("Playing field size X");
+    jPanel1.add(lPlayingfieldsizeX2);
+    lPlayingfieldsizeY1.setBounds(0, 72, 112, 24);
+    lPlayingfieldsizeY1.setText("Playing field size Y");
+    jPanel1.add(lPlayingfieldsizeY1);
+    lanysizeover25isntrecommended1.setBounds(0, 96, 218, 24);
+    lanysizeover25isntrecommended1.setText("* any size over 25 isn't recommended");
+    jPanel1.add(lanysizeover25isntrecommended1);
+    bStart1.setBounds(0, 128, 80, 24);
+    bStart1.setText("Start");
+    bStart1.setMargin(new Insets(2, 2, 2, 2));
+    bStart1.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bStart1_ActionPerformed(evt);
+      }
+    });
+    jPanel1.add(bStart1);
+    jNumberField_uboote.setBounds(112, 24, 80, 24);
+    jPanel1.add(jNumberField_uboote);
+    jNumberField_x.setBounds(112, 48, 80, 24);
+    jPanel1.add(jNumberField_x);
+    jNumberField_y.setBounds(112, 72, 80, 24);
+    jPanel1.add(jNumberField_y);
     // end components
     setVisible(true);
     
   
-    game_start();
+    //game_start();
   
   } // end of public main
   
   // Anfang Methoden
   
   // start methods
-  public void game_start() {
+  public void game_start(int uboote, int x, int y) {
+    max_x = x;
+    max_y = y;
+    max_uboot = uboote;
+    
+    game_field = new int[max_x][max_y];
+    
     game_field_fill();
     random_uboot_gen();
     game_fielt_abgleichen();
   }
   
   public void game_fielt_abgleichen() {
+    
+    jTable_gamefieltModel.setColumnCount(1);
+    jTable_gamefieltModel.setRowCount(0);
+  
     for (int y = 0; y < max_y; y++) {
       jTable_gamefieltModel.addColumn(String.valueOf(y));
     }
@@ -178,6 +252,29 @@ public class main extends JFrame {
   }
 
   // Ende Methoden
+  public void bStartNewGame1_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bStartNewGame1.setVisible(false);
+    jPanel1.setVisible(true);
+  } // end of bStartNewGame1_ActionPerformed
+
+  public void bStart1_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    int Uboote = jNumberField_uboote.getInt();
+    int nmax_x = jNumberField_x.getInt();
+    int nmax_y = jNumberField_y.getInt();
+    
+    
+    
+    bStartNewGame1.setVisible(true);
+    jPanel1.setVisible(false);
+    jNumberField_uboote.clear();
+    jNumberField_x.clear();
+    jNumberField_y.clear();
+    game_start(Uboote, nmax_x, nmax_y);
+    
+  } // end of bStart1_ActionPerformed
+
   // end methods
 } // end of class main
 
