@@ -14,12 +14,14 @@ import javax.swing.table.*;
 
 public class main extends JFrame {
   // Anfang Attribute
+  // start attributes
   static int max_uboot = 10;
   static int max_x = 25;
   static int max_y = 25;
   static int [] [] game_field = new int [max_x] [max_y];
-  public int x;
-  public int y;
+  //public int x;
+  //public int y;
+  public int treffer;
   
   public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
@@ -29,6 +31,7 @@ public class main extends JFrame {
   public JNumberField jNumberField_inputx = new JNumberField();
   public JNumberField jNumberField_inputy = new JNumberField();
   private JButton b_eingabe = new JButton();
+  // end attributes
   // Ende Attribute
   
   public main() { 
@@ -46,6 +49,7 @@ public class main extends JFrame {
     setResizable(true);
     Container cp = getContentPane();
     cp.setLayout(null);
+    // start components
     // Anfang Komponenten
     
     jTable_gamefieltScrollPane.setBounds(0, 0, 500, 500);
@@ -57,7 +61,7 @@ public class main extends JFrame {
     cp.add(jTable_gamefieltScrollPane);
     jTextArea_gamelogScrollPane.setBounds(500, 350, 300, 150);
     jTextArea_gamelog.setEditable(false);
-    jTextArea_gamelog.setText("GAME LOG!!!");
+    jTextArea_gamelog.setText("GAME LOG!!! \n");
     jTextArea_gamelog.setToolTipText("This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     cp.add(jTextArea_gamelogScrollPane);
     jNumberField_inputx.setBounds(500, 306, 75, 20);
@@ -80,11 +84,17 @@ public class main extends JFrame {
     cp.add(b_eingabe);
     // Ende Komponenten
     
+    // end components
     setVisible(true);
+    
+  
+    game_start();
+  
   } // end of public main
   
   // Anfang Methoden
   
+  // start methods
   public void game_start() {
     game_field_fill();
     random_uboot_gen();
@@ -125,24 +135,19 @@ public class main extends JFrame {
     } while (anzahl < max_uboot); // end of do-while
   }
   
-  public void user_input() {
-    int treffer = 0;
-    do {
-      game_fielt_abgleichen();
-      
-      if (game_field [x] [y] == 1) {
-        log_println("Treffer versengt");
-        game_field [x] [y] = 3;
-        treffer++;
-      } else {
-        log_println("Verfehlt");
-        game_field [x] [y] = 2;
-      } // end of if-else
-    } while (treffer < max_uboot); // end of do-while
+  public void user_input(int x, int y) {
+    if (game_field [x] [y] == 1) {
+      log_println("Treffer versengt");
+      game_field [x] [y] = 3;
+      treffer++;
+    } else {
+      log_println("Verfehlt");
+      game_field [x] [y] = 2;
+    } // end of if-else
   }
   
   public void log_println(String input) {
-    jTextArea_gamelog.append(input + "\n");
+    jTextArea_gamelog.append("\n" + input);
   }
   
   public static void main(String[] args) {
@@ -150,14 +155,26 @@ public class main extends JFrame {
   } // end of main
   
   public void b_eingabe_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
-    x = jNumberField_inputx.getInt();
-    y = jNumberField_inputy.getInt();
-    jNumberField_inputx.clear();
-    jNumberField_inputy.clear();
-    user_input();
+    // TODO hier Quelltext einfuegen
+    int x = jNumberField_inputx.getInt();
+    int y = jNumberField_inputy.getInt();
+    //jNumberField_inputx.clear();
+    //jNumberField_inputy.clear();
+    user_input(x,y);
+    game_fielt_print();
   } // end of b_eingabe_ActionPerformed
+  
+  public void game_fielt_print() {
+    for (int x = 0; x < max_x; x++) {
+      for (int y = 0; y < max_y; y++) {
+        jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
+      }
+    }
+     
+  
+  }
 
   // Ende Methoden
+  // end methods
 } // end of class main
 
