@@ -50,7 +50,6 @@ public class main extends JFrame {
     private JNumberField jNumberField_uboote = new JNumberField();
     private JNumberField jNumberField_x = new JNumberField();
     private JNumberField jNumberField_y = new JNumberField();
-  private JToolBar jToolBar1 = new JToolBar();
   // end attributes
   // Ende Attribute
   
@@ -153,8 +152,6 @@ public class main extends JFrame {
 
 
 
-    jToolBar1.setBounds(704, 312, 240, 80);
-    cp.add(jToolBar1);
     // end components
     setVisible(true);
     

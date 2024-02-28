@@ -78,7 +78,7 @@ public class main extends JFrame {
     jTable_gamefielt.setAutoCreateRowSorter(false);
     jTable_gamefielt.getColumnModel().getColumn(0).setHeaderValue("");
     cp.add(jTable_gamefieltScrollPane);
-    jTextArea_gamelogScrollPane.setBounds(500, 350, 300, 150);
+    jTextArea_gamelogScrollPane.setBounds(500, 352, 300, 150);
     jTextArea_gamelog.setEditable(false);
     jTextArea_gamelog.setText("GAME LOG!!!");
     jTextArea_gamelog.setToolTipText("This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -112,7 +112,7 @@ public class main extends JFrame {
       }
     });
     cp.add(bStartNewGame1);
-    jPanel1.setBounds(504, 24, 500, 240);
+    jPanel1.setBounds(500, 24, 500, 240);
     jPanel1.setOpaque(false);
     jPanel1.setVisible(false);
     cp.add(jPanel1);
