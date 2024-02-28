@@ -28,6 +28,7 @@ public class main extends JFrame {
   //public int x;
   //public int y;
   public int treffer;
+  public boolean cheats = false;
   
   public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
@@ -50,6 +51,8 @@ public class main extends JFrame {
     private JNumberField jNumberField_uboote = new JNumberField();
     private JNumberField jNumberField_x = new JNumberField();
     private JNumberField jNumberField_y = new JNumberField();
+    private JLabel lCheats = new JLabel();
+    private JCheckBox jCheckBox_cheats = new JCheckBox();
   // end attributes
   // Ende Attribute
   
@@ -101,6 +104,18 @@ public class main extends JFrame {
     });
     b_eingabe.setToolTipText("TODO");
     cp.add(b_eingabe);
+    lCheats.setBounds(192, 24, 112, 24);
+    lCheats.setText("Cheats?");
+    lCheats.setToolTipText("Or for debuging");
+    jPanel1.add(lCheats);
+    jCheckBox_cheats.setBounds(304, 24, 24, 24);
+    jCheckBox_cheats.setOpaque(false);
+    jCheckBox_cheats.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        jCheckBox_cheats_ActionPerformed(evt);
+      }
+    });
+    jPanel1.add(jCheckBox_cheats);
     // Ende Komponenten
     
     bStartNewGame1.setBounds(500, 0, 115, 24);
@@ -187,7 +202,15 @@ public class main extends JFrame {
     for (int x = 0; x < max_x; x++) {
       jTable_gamefieltModel.setValueAt(String.valueOf(x), x, 0);
       for (int y = 0; y < max_y; y++) {
-        jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
+        if (cheats == true) {
+          jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
+        } else {
+          if (game_field [x] [y] == 1) {
+            jTable_gamefieltModel.setValueAt(String.valueOf(0), x ,y+1);
+          } else {
+            jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);  
+          } // end of if-else
+        } // end of if-else
       }
     }  
   }
@@ -250,12 +273,25 @@ public class main extends JFrame {
   public void game_fielt_print() {
     for (int x = 0; x < max_x; x++) {
       for (int y = 0; y < max_y; y++) {
-        jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
+        if (cheats == true) {
+          jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);
+        } else {
+          if (game_field [x] [y] == 1) {
+            jTable_gamefieltModel.setValueAt(String.valueOf(0), x ,y+1);
+          } else {
+            jTable_gamefieltModel.setValueAt(String.valueOf(game_field [x] [y]), x ,y+1);  
+          } // end of if-else
+        } // end of if-else
       }
     }
   }
 
-  // Ende Methoden
+  public void jCheckBox_cheats_ActionPerformed(ActionEvent evt) {
+    // TODO hier Quelltext einfügen
+    cheats =! cheats;
+    //log_println(String.valueOf(cheats));
+  } // end of jCheckBox_cheats_ActionPerformed
+
   public void bStartNewGame1_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bStartNewGame1.setVisible(false);

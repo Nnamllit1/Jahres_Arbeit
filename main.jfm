@@ -1,6 +1,6 @@
 object main: TFGUIForm
-  Left = 696
-  Top = 282
+  Left = 1366
+  Top = 698
   BorderIcons = [biSystemMenu]
   Caption = 'main'
   ClientHeight = 461
@@ -476,6 +476,48 @@ object main: TFGUIForm
       HorizontalAlignment = LEFT
       Text = ''
       Editable = True
+    end
+    object lCheats: TJLabel
+      Tag = 1
+      Left = 192
+      Top = 24
+      Width = 112
+      Height = 24
+      Hint = 'jLabel1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Dialog'
+      Font.Style = [fsBold]
+      Foreground = 3355443
+      Background = clBtnFace
+      ToolTipText = 'Or for debuging'
+      Text = 'Cheats?'
+      HorizontalAlignment = LEFT
+      VerticalAlignment = CENTER
+      HorizontalTextPosition = RIGHT
+      VerticalTextPosition = CENTER
+      IconTextGap = 4
+      DisplayedMnemonic = 0
+      DisplayedMnemonicIndex = 0
+    end
+    object jCheckBox_cheats: TJCheckBox
+      Tag = 5
+      Left = 304
+      Top = 24
+      Width = 24
+      Height = 24
+      Hint = 'jCheckBox1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Dialog'
+      Font.Style = [fsBold]
+      Foreground = 3355443
+      Background = clBtnFace
+      actionPerformed = 'jCheckBox_cheats_ActionPerformed'
+      Selected = False
+      Text = ''
     end
   end
 end
