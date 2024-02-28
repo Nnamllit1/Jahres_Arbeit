@@ -1,9 +1,9 @@
 object FGUIForm: TFGUIForm
-  Left = 1581
-  Top = 498
+  Left = 696
+  Top = 282
   BorderIcons = [biSystemMenu]
   Caption = 'main'
-  ClientHeight = 460
+  ClientHeight = 461
   ClientWidth = 984
   Color = clBtnFace
   ParentFont = True
@@ -17,7 +17,7 @@ object FGUIForm: TFGUIForm
   OnMouseActivate = FormMouseActivate
   OnResize = FormResize
   FrameType = 5
-  Modified = False
+  Modified = True
   Resizable = True
   Undecorated = False
   Background = clBtnFace
@@ -232,7 +232,7 @@ object FGUIForm: TFGUIForm
     Left = 504
     Top = 24
     Width = 500
-    Height = 280
+    Height = 240
     Hint = 'jPanel1'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

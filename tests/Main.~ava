@@ -1,0 +1,80 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Main extends JFrame {
+    static int max_uboot = 1;
+    static int max_x = 1;
+    static int max_y = 1;
+    static int[][] game_field = new int[max_x][max_y];
+    public int treffer;
+
+    public JTable jTable_gamefield = new JTable(0, 1);
+    public DefaultTableModel jTable_gamefieldModel = (DefaultTableModel) jTable_gamefield.getModel();
+    public JScrollPane jTable_gamefieldScrollPane = new JScrollPane(jTable_gamefield);
+    public JTextArea jTextArea_gamelog = new JTextArea("GAME LOG!!!");
+    public JScrollPane jTextArea_gamelogScrollPane = new JScrollPane(jTextArea_gamelog);
+    public JTextField jNumberField_inputx = new JTextField();
+    public JTextField jNumberField_inputy = new JTextField();
+    private JButton b_eingabe = new JButton("Eingabe");
+
+    public Main() {
+        super("Battleship Game");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        initComponents();
+        setVisible(true);
+    }
+
+    private void initComponents() {
+        Container cp = getContentPane();
+        cp.setLayout(new BorderLayout());
+
+        JPanel gamePanel = new JPanel(new GridLayout(1, 1));
+        gamePanel.setBorder(BorderFactory.createTitledBorder("Game Field"));
+        gamePanel.add(jTable_gamefieldScrollPane);
+        cp.add(gamePanel, BorderLayout.CENTER);
+
+        JPanel controlPanel = new JPanel(new GridBagLayout());
+        controlPanel.setBorder(BorderFactory.createTitledBorder("Controls"));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        controlPanel.add(new JLabel("Input X:"), gbc);
+
+        gbc.gridx = 1;
+        controlPanel.add(jNumberField_inputx, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        controlPanel.add(new JLabel("Input Y:"), gbc);
+
+        gbc.gridx = 1;
+        controlPanel.add(jNumberField_inputy, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        controlPanel.add(b_eingabe, gbc);
+
+        cp.add(controlPanel, BorderLayout.EAST);
+
+        JPanel logPanel = new JPanel(new BorderLayout());
+        logPanel.setBorder(BorderFactory.createTitledBorder("Game Log"));
+        logPanel.add(jTextArea_gamelogScrollPane, BorderLayout.CENTER);
+        cp.add(logPanel, BorderLayout.SOUTH);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(Main::new);
+    }
+}

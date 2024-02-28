@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
 import javax.swing.JFrame;
+import java.io.*;
 
 /**
  *
@@ -49,6 +50,7 @@ public class main extends JFrame {
     private JNumberField jNumberField_uboote = new JNumberField();
     private JNumberField jNumberField_x = new JNumberField();
     private JNumberField jNumberField_y = new JNumberField();
+  private JToolBar jToolBar1 = new JToolBar();
   // end attributes
   // Ende Attribute
   
@@ -57,7 +59,7 @@ public class main extends JFrame {
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 1000; 
-    int frameHeight = 499;
+    int frameHeight = 500;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -111,7 +113,7 @@ public class main extends JFrame {
       }
     });
     cp.add(bStartNewGame1);
-    jPanel1.setBounds(504, 24, 500, 280);
+    jPanel1.setBounds(504, 24, 500, 240);
     jPanel1.setOpaque(false);
     jPanel1.setVisible(false);
     cp.add(jPanel1);
@@ -148,6 +150,11 @@ public class main extends JFrame {
     jPanel1.add(jNumberField_x);
     jNumberField_y.setBounds(112, 72, 80, 24);
     jPanel1.add(jNumberField_y);
+
+
+
+    jToolBar1.setBounds(704, 312, 240, 80);
+    cp.add(jToolBar1);
     // end components
     setVisible(true);
     
@@ -164,7 +171,7 @@ public class main extends JFrame {
     max_y = y;
     max_uboot = uboote;
     
-    int [] [] game_field = new int [max_x] [max_y];
+    game_field = new int[max_x][max_y];
     
     game_field_fill();
     random_uboot_gen();
@@ -172,6 +179,10 @@ public class main extends JFrame {
   }
   
   public void game_fielt_abgleichen() {
+    
+    jTable_gamefieltModel.setColumnCount(1);
+    jTable_gamefieltModel.setRowCount(0);
+  
     for (int y = 0; y < max_y; y++) {
       jTable_gamefieltModel.addColumn(String.valueOf(y));
     }
@@ -233,8 +244,8 @@ public class main extends JFrame {
     // TODO hier Quelltext einfuegen
     int x = jNumberField_inputx.getInt();
     int y = jNumberField_inputy.getInt();
-    //jNumberField_inputx.clear();
-    //jNumberField_inputy.clear();
+    jNumberField_inputx.clear();
+    jNumberField_inputy.clear();
     user_input(x,y);
     game_fielt_print();
   } // end of b_eingabe_ActionPerformed
@@ -270,6 +281,12 @@ public class main extends JFrame {
     game_start(Uboote, nmax_x, nmax_y);
     
   } // end of bStart1_ActionPerformed
+
+
+
+
+
+
 
   // end methods
 } // end of class main

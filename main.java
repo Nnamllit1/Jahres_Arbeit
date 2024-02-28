@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
 import javax.swing.JFrame;
+import java.io.*;
 
 /**
  *
@@ -57,7 +58,7 @@ public class main extends JFrame {
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 1000; 
-    int frameHeight = 499;
+    int frameHeight = 500;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -111,7 +112,7 @@ public class main extends JFrame {
       }
     });
     cp.add(bStartNewGame1);
-    jPanel1.setBounds(504, 24, 500, 280);
+    jPanel1.setBounds(504, 24, 500, 240);
     jPanel1.setOpaque(false);
     jPanel1.setVisible(false);
     cp.add(jPanel1);
@@ -148,6 +149,9 @@ public class main extends JFrame {
     jPanel1.add(jNumberField_x);
     jNumberField_y.setBounds(112, 72, 80, 24);
     jPanel1.add(jNumberField_y);
+
+
+
     // end components
     setVisible(true);
     
@@ -237,8 +241,8 @@ public class main extends JFrame {
     // TODO hier Quelltext einfuegen
     int x = jNumberField_inputx.getInt();
     int y = jNumberField_inputy.getInt();
-    //jNumberField_inputx.clear();
-    //jNumberField_inputy.clear();
+    jNumberField_inputx.clear();
+    jNumberField_inputy.clear();
     user_input(x,y);
     game_fielt_print();
   } // end of b_eingabe_ActionPerformed
@@ -274,6 +278,12 @@ public class main extends JFrame {
     game_start(Uboote, nmax_x, nmax_y);
     
   } // end of bStart1_ActionPerformed
+
+
+
+
+
+
 
   // end methods
 } // end of class main
