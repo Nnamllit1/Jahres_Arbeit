@@ -29,7 +29,6 @@ public class main extends JFrame {
   //public int y;
   public int treffer;
   public boolean cheats = false;
-  public boolean Credits_toggel = false;
   
   public JTable jTable_gamefielt = new JTable(0, 1);
     public DefaultTableModel jTable_gamefieltModel = (DefaultTableModel) jTable_gamefielt.getModel();
@@ -54,11 +53,6 @@ public class main extends JFrame {
     private JNumberField jNumberField_y = new JNumberField();
     private JLabel lCheats = new JLabel();
     private JCheckBox jCheckBox_cheats = new JCheckBox();
-    private JButton jButton1 = new JButton();
-  private JButton bCredits1 = new JButton();
-  private JPanel jpanel_Credits = new JPanel(null, true);
-    private JLabel jLabel1 = new JLabel();
-    private JLabel lDevTillmannakaNnamllit1 = new JLabel();
   // end attributes
   // Ende Attribute
   
@@ -133,10 +127,9 @@ public class main extends JFrame {
       }
     });
     cp.add(bStartNewGame1);
-    jPanel1.setBounds(504, 24, 500, 240);
+    jPanel1.setBounds(500, 24, 500, 240);
     jPanel1.setOpaque(false);
     jPanel1.setVisible(false);
-    jPanel1.setEnabled(false);
     cp.add(jPanel1);
     lNewGameSettings1.setBounds(0, 0, 115, 24);
     lNewGameSettings1.setText("New Game Settings");
@@ -174,29 +167,6 @@ public class main extends JFrame {
 
 
 
-    jButton1.setBounds(120, -24, 80, 24);
-    jButton1.setText("Button");
-    jButton1.setMargin(new Insets(2, 2, 2, 2));
-    jPanel1.add(jButton1);
-    bCredits1.setBounds(616, 0, 80, 24);
-    bCredits1.setText("Credits");
-    bCredits1.setMargin(new Insets(2, 2, 2, 2));
-    bCredits1.addActionListener(new ActionListener() { 
-      public void actionPerformed(ActionEvent evt) { 
-        bCredits1_ActionPerformed(evt);
-      }
-    });
-    cp.add(bCredits1);
-    jpanel_Credits.setBounds(696, 0, 288, 24);
-    jpanel_Credits.setOpaque(false);
-    jpanel_Credits.setVisible(false);
-    cp.add(jpanel_Credits);
-    jLabel1.setBounds(216, -24, 80, 24);
-    jLabel1.setText("Text");
-    jPanel1.add(jLabel1);
-    lDevTillmannakaNnamllit1.setBounds(0, 0, 177, 24);
-    lDevTillmannakaNnamllit1.setText("Dev: Tillmann (aka: Nnamllit11)");
-    jpanel_Credits.add(lDevTillmannakaNnamllit1);
     // end components
     setVisible(true);
     
@@ -317,7 +287,7 @@ public class main extends JFrame {
   }
 
   public void jCheckBox_cheats_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfÃ¼gen
+    // TODO hier Quelltext einfügen
     cheats =! cheats;
     //log_println(String.valueOf(cheats));
   } // end of jCheckBox_cheats_ActionPerformed
@@ -344,17 +314,12 @@ public class main extends JFrame {
     game_start(Uboote, nmax_x, nmax_y);
     
   } // end of bStart1_ActionPerformed
-  
-  public void Credits_fuc_toggel() {
-    Credits_toggel =! Credits_toggel;
-    jpanel_Credits.setVisible(Credits_toggel);
-    log_println(String.valueOf(Credits_toggel));
-  }
 
-  public void bCredits1_ActionPerformed(ActionEvent evt) {
-    // TODO add your code here
-    Credits_fuc_toggel();
-  } // end of bCredits1_ActionPerformed
+
+
+
+
+
 
   // end methods
 } // end of class main

@@ -1,0 +1,9 @@
+package Jahres_Arbeit_main.ex.Updater;
+
+public class launcher {
+
+    public static void main(String[] args) 
+    {
+           System.out.println("Hallo  Welt");
+    }
+}
