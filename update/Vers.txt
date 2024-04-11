@@ -1,1 +1,15 @@
-1.1
+[
+  {
+    "title": "Beispielspiel",
+    "genre": "Action",
+    "developer": "Beispielentwickler",
+    "release_date": "2023-12-31",
+    "system_requirements": {
+      "os": "Windows 10",
+      "processor": "Intel Core i5",
+      "memory": "8 GB RAM",
+      "graphics": "NVIDIA GeForce GTX 1060"
+    },
+    "download_url": "https://raw.githubusercontent.com/Nnamllit1/Jahres_Arbeit/main/apps/testapp/app.zip"
+  },
+]
