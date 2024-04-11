@@ -61,7 +61,7 @@ public class main extends JFrame {
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 1000; 
-    int frameHeight = 500;
+    int frameHeight = 508;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -287,7 +287,7 @@ public class main extends JFrame {
   }
 
   public void jCheckBox_cheats_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     cheats =! cheats;
     //log_println(String.valueOf(cheats));
   } // end of jCheckBox_cheats_ActionPerformed

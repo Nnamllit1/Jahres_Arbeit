@@ -1,27 +1,29 @@
-object main: TFGUIForm
+object FGUIForm_1: TFGUIForm
   Left = 362
-  Top = 183
+  Top = 175
   BorderIcons = [biSystemMenu]
   Caption = 'main'
-  ClientHeight = 461
+  ClientHeight = 469
   ClientWidth = 984
   Color = clBtnFace
   ParentFont = True
   FormStyle = fsStayOnTop
-  OldCreateOrder = True
   Position = poDesigned
   Scaled = False
   ShowHint = True
   Visible = True
+  OnAfterMonitorDpiChanged = FormAfterMonitorDpiChanged
+  OnCanResize = FormCanResize
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
+  OnMouseActivate = FormMouseActivate
   OnResize = FormResize
   FrameType = 5
+  Modified = True
   Resizable = True
   Undecorated = False
   Background = clBtnFace
-  PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object jTable_gamefielt: TJTable
     Tag = 19
     Left = 0
@@ -36,23 +38,26 @@ object main: TFGUIForm
     Font.Style = []
     Foreground = 3355443
     Background = clWhite
+    JavaType = 'JTable'
+    Focusable = True
     Enabled = False
-    RowHeight = 16
-    ShowHorizontalLines = True
-    ShowVerticalLines = True
-    ShowGrid = True
+    Opaque = True
     Columns.Strings = (
       '')
     ColCount = 1
     RowCount = 0
+    HorizontalScrollBarPolicy = AS_NEEDED
+    VerticalScrollBarPolicy = AS_NEEDED
+    ShowGrid = True
+    RowHeight = 16
+    ShowHorizontalLines = True
+    ShowVerticalLines = True
     FillsViewportHeight = False
     AutoCreateRowSorter = False
     RowSelectionAllowed = False
     ColumnSelectionAllowed = False
     CellSelectionEnabled = False
     DragEnabled = False
-    HorizontalScrollBarPolicy = AS_NEEDED
-    VerticalScrollBarPolicy = AS_NEEDED
   end
   object jTextArea_gamelog: TJTextArea
     Tag = 3
@@ -69,6 +74,9 @@ object main: TFGUIForm
     Font.Style = [fsBold]
     Foreground = 3355443
     Background = clWhite
+    JavaType = 'JTextArea'
+    Focusable = True
+    Opaque = True
     ToolTipText = 'This is the game log!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
     LineWrap = False
     HorizontalScrollBarPolicy = AS_NEEDED
@@ -94,6 +102,9 @@ object main: TFGUIForm
     Font.Style = []
     Foreground = 3355443
     Background = clWhite
+    JavaType = 'JNumberField'
+    Focusable = True
+    Opaque = True
     ToolTipText = 'Input for X'
     HorizontalAlignment = LEFT
     Text = ''
@@ -114,6 +125,9 @@ object main: TFGUIForm
     Font.Style = []
     Foreground = 3355443
     Background = clWhite
+    JavaType = 'JNumberField'
+    Focusable = True
+    Opaque = True
     ToolTipText = 'Input for Y'
     HorizontalAlignment = LEFT
     Text = ''
@@ -133,7 +147,10 @@ object main: TFGUIForm
     Font.Style = [fsBold]
     Foreground = 3355443
     Background = 15658734
+    JavaType = 'JButton'
+    Focusable = True
     actionPerformed = 'b_eingabe_ActionPerformed'
+    Opaque = True
     ToolTipText = 'TODO'
     Text = 'Eingabe'
     Mnemonic = 0
@@ -178,7 +195,10 @@ object main: TFGUIForm
     Font.Style = [fsBold]
     Foreground = 3355443
     Background = 15658734
+    JavaType = 'JButton'
+    Focusable = True
     actionPerformed = 'bStartNewGame1_ActionPerformed'
+    Opaque = True
     Text = 'Start New Game'
     Mnemonic = 0
     DisplayedMnemonicIndex = 0
@@ -222,7 +242,10 @@ object main: TFGUIForm
     Font.Style = [fsBold]
     Foreground = 3355443
     Background = clBtnFace
+    JavaType = 'JPanel'
+    Focusable = True
     Visible = False
+    Opaque = False
     Border.BorderType = NoBorder
     Border.LineColor = clBlack
     Border.LineThickness = 0
@@ -252,6 +275,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JLabel'
+      Focusable = True
+      Opaque = True
       Text = 'New Game Settings'
       HorizontalAlignment = LEFT
       VerticalAlignment = CENTER
@@ -275,6 +301,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JLabel'
+      Focusable = True
+      Opaque = True
       Text = 'Uboote'
       HorizontalAlignment = LEFT
       VerticalAlignment = CENTER
@@ -299,6 +328,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clWhite
+      JavaType = 'JTextArea'
+      Focusable = True
+      Opaque = True
       ToolTipText = 'The log of shame'
       LineWrap = False
       HorizontalScrollBarPolicy = AS_NEEDED
@@ -321,6 +353,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JLabel'
+      Focusable = True
+      Opaque = True
       Text = 'Playing field size X'
       HorizontalAlignment = LEFT
       VerticalAlignment = CENTER
@@ -344,6 +379,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JLabel'
+      Focusable = True
+      Opaque = True
       Text = 'Playing field size Y'
       HorizontalAlignment = LEFT
       VerticalAlignment = CENTER
@@ -367,6 +405,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JLabel'
+      Focusable = True
+      Opaque = True
       Text = '* any size over 25 isn'#39't recommended'
       HorizontalAlignment = LEFT
       VerticalAlignment = CENTER
@@ -390,7 +431,10 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = 15658734
+      JavaType = 'JButton'
+      Focusable = True
       actionPerformed = 'bStart1_ActionPerformed'
+      Opaque = True
       Text = 'Start'
       Mnemonic = 0
       DisplayedMnemonicIndex = 0
@@ -435,6 +479,9 @@ object main: TFGUIForm
       Font.Style = []
       Foreground = 3355443
       Background = clWhite
+      JavaType = 'JNumberField'
+      Focusable = True
+      Opaque = True
       HorizontalAlignment = LEFT
       Text = ''
       Editable = True
@@ -454,6 +501,9 @@ object main: TFGUIForm
       Font.Style = []
       Foreground = 3355443
       Background = clWhite
+      JavaType = 'JNumberField'
+      Focusable = True
+      Opaque = True
       HorizontalAlignment = LEFT
       Text = ''
       Editable = True
@@ -473,6 +523,9 @@ object main: TFGUIForm
       Font.Style = []
       Foreground = 3355443
       Background = clWhite
+      JavaType = 'JNumberField'
+      Focusable = True
+      Opaque = True
       HorizontalAlignment = LEFT
       Text = ''
       Editable = True
@@ -491,6 +544,9 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JLabel'
+      Focusable = True
+      Opaque = True
       ToolTipText = 'Or for debuging'
       Text = 'Cheats?'
       HorizontalAlignment = LEFT
@@ -515,7 +571,10 @@ object main: TFGUIForm
       Font.Style = [fsBold]
       Foreground = 3355443
       Background = clBtnFace
+      JavaType = 'JCheckBox'
+      Focusable = True
       actionPerformed = 'jCheckBox_cheats_ActionPerformed'
+      Opaque = False
       Selected = False
       Text = ''
     end
