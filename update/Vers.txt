@@ -1,7 +1,7 @@
 {
 	"luncher":[{
 		"version": "0.0.1",
-		"download": ""
+		"download": "fvdhveruibnebhfjbknzfd"
 
 	}],
 	"shipgame":[{
