@@ -1,0 +1,3 @@
+CLASS-PATH: .
+MAIN-CLASS: wdgview
+
