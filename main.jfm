@@ -1,4 +1,4 @@
-object FGUIForm: TFGUIForm
+object FGUIForm_1: TFGUIForm
   Left = 703
   Top = 692
   BorderIcons = [biSystemMenu]
