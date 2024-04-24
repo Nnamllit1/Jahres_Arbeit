@@ -1,14 +1,14 @@
 object FGUIForm: TFGUIForm
-  Left = 763
-  Top = 312
+  Left = 1105
+  Top = 423
   BorderIcons = [biSystemMenu]
-  Caption = 'launcher'
+  Caption = 'Launcher'
   ClientHeight = 261
-  ClientWidth = 284
+  ClientWidth = 584
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = 0
   Font.Name = 'Segoe UI'
   Font.Style = []
   FormStyle = fsStayOnTop
@@ -25,7 +25,9 @@ object FGUIForm: TFGUIForm
   Resizable = False
   Undecorated = False
   Background = clBtnFace
-  TextHeight = 15
+  Title = 'Launcher'
+  PixelsPerInch = 0
+  TextHeight = 21
   object jLabel_Ver: TJLabel
     Tag = 1
     Left = 0
@@ -51,5 +53,52 @@ object FGUIForm: TFGUIForm
     IconTextGap = 4
     DisplayedMnemonic = 0
     DisplayedMnemonicIndex = 0
+  end
+  object b_PlayUpdate: TJButton
+    Tag = 4
+    Left = 0
+    Top = 24
+    Width = 80
+    Height = 24
+    Hint = 'jButton1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = 15658734
+    JavaType = 'JButton'
+    Focusable = True
+    actionPerformed = 'b_PlayUpdate_ActionPerformed'
+    Opaque = True
+    Text = 'Play/Update'
+    Mnemonic = 0
+    DisplayedMnemonicIndex = 0
+    Selected = False
+    BorderPainted = True
+    FocusPainted = False
+    ContentAreaFilled = True
+    HorizontalAlignment = CENTER
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = RIGHT
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    RolloverEnabled = False
+    Border.BorderType = NoBorder
+    Border.LineColor = clBlack
+    Border.LineThickness = 0
+    Border.LineRounded = False
+    Border.EtchHighlightColor = clBlack
+    Border.EtchShadowColor = clBlack
+    Border.Etchtype = 0
+    Border.BevelHighlightColor = clBlack
+    Border.BevelShadowColor = clBlack
+    Border.Beveltype = 0
+    Border.MatteColor = clBlack
+    Border.MatteTop = 0
+    Border.MatteLeft = 0
+    Border.MatteBottom = 0
+    Border.MatteRight = 0
   end
 end

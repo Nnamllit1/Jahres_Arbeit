@@ -9,6 +9,8 @@ import java.net.URI;
 import java.net.URL;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.io.*;
+import java.nio.file.Paths;
 
 /**
  *
@@ -21,20 +23,21 @@ import org.json.JSONObject;
 public class launcher extends JFrame {
   // start attributes
   private JLabel jLabel_Ver = new JLabel();
+  private JButton b_PlayUpdate = new JButton();
   // end attributes
   
   public launcher() { 
     // Frame init
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-    int frameWidth = 300;
+    int frameWidth = 600; 
     int frameHeight = 300;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
     int y = (d.height - getSize().height) / 2;
     setLocation(x, y);
-    setTitle("launcher");
+    setTitle("Launcher");
     setResizable(false);
     Container cp = getContentPane();
     cp.setLayout(null);
@@ -43,6 +46,15 @@ public class launcher extends JFrame {
     jLabel_Ver.setBounds(0, 0, 80, 24);
     jLabel_Ver.setText("Text");
     cp.add(jLabel_Ver);
+    b_PlayUpdate.setBounds(0, 24, 80, 24);
+    b_PlayUpdate.setText("Play/Update");
+    b_PlayUpdate.setMargin(new Insets(2, 2, 2, 2));
+    b_PlayUpdate.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        b_PlayUpdate_ActionPerformed(evt);
+      }
+    });
+    cp.add(b_PlayUpdate);
     // end components
     init();
     setVisible(true);
@@ -54,6 +66,7 @@ public class launcher extends JFrame {
     } catch (Exception e) {
       e.printStackTrace();
     }
+
   }
   
   // start methods
@@ -83,6 +96,8 @@ public class launcher extends JFrame {
   
 
   public static void main(String[] args) {
+    String currentDir = System.getProperty("user.dir");
+    System.out.println(currentDir);
     try {
       String programName = "luncher";
       String programVersion = "0.0.0";
@@ -94,5 +109,10 @@ public class launcher extends JFrame {
     new launcher();
   } // end of main
   
+  public void b_PlayUpdate_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    
+  } // end of b_PlayUpdate_ActionPerformed
+
   // end methods
 } // end of class launcher
