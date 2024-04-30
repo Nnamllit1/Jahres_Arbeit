@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: JEClasses.jar , json-java.jar
+Main-Class: launcher
+Created-By: 21.0.1 (Oracle Corporation)
+
